@@ -1,2 +1,2 @@
 # keyboard-custom-element
-&lt;keyboard /> made with Custom Elements API
+`<custom-keyboard />` made with Custom Elements API

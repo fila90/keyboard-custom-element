@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>custom keyboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <input type="text">
+  <custom-keyboard  />
+
+  <script src="./custom-keyboard.js"></script>
+  <script>
+    const input = document.querySelector('input')
+    const keyboard = document.querySelector('custom-keyboard')
+    keyboard.addEventListener('ck-click', e => {
+      input.value += e.detail
+    })
+  </script>
+</body>
+</html>
