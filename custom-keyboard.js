@@ -1,129 +1,49 @@
+/* beautify preserve:start */
 const defaultKeyboard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-  [{
-    main: 'q',
-    shift: 'Q',
-    alt: '%'
-  }, {
-    main: 'w',
-    shift: 'W',
-    alt: '\\'
-  }, {
-    main: 'e',
-    shift: 'E',
-    alt: '|'
-  }, {
-    main: 'r',
-    shift: 'R',
-    alt: '='
-  }, {
-    main: 't',
-    shift: 'T',
-    alt: '['
-  }, {
-    main: 'y',
-    shift: 'Y',
-    alt: ']'
-  }, {
-    main: 'u',
-    shift: 'U',
-    alt: '<'
-  }, {
-    main: 'i',
-    shift: 'I',
-    alt: '>'
-  }, {
-    main: 'o',
-    shift: 'O',
-    alt: '{'
-  }, {
-    main: 'p',
-    shift: 'P',
-    alt: '}'
-  }],
-  [{
-    main: 'a',
-    shift: 'A',
-    alt: '@'
-  }, {
-    main: 's',
-    shift: 'S',
-    alt: '#'
-  }, {
-    main: 'd',
-    shift: 'D',
-    alt: '$'
-  }, {
-    main: 'f',
-    shift: 'F',
-    alt: '_'
-  }, {
-    main: 'g',
-    shift: 'G',
-    alt: '&'
-  }, {
-    main: 'h',
-    shift: 'H',
-    alt: '-'
-  }, {
-    main: 'j',
-    shift: 'J',
-    alt: '+'
-  }, {
-    main: 'k',
-    shift: 'K',
-    alt: '('
-  }, {
-    main: 'l',
-    shift: 'L',
-    alt: ')'
-  }],
-  [{
-    display: '^',
-    main: 'SHIFT',
-  }, {
-    main: 'z',
-    shift: 'Z',
-    alt: '*'
-  }, {
-    main: 'x',
-    shift: 'X',
-    alt: '"'
-  }, {
-    main: 'c',
-    shift: 'C',
-    alt: '\''
-  }, {
-    main: 'v',
-    shift: 'V',
-    alt: ':'
-  }, {
-    main: 'b',
-    shift: 'B',
-    alt: ';'
-  }, {
-    main: 'n',
-    shift: 'N',
-    alt: '!'
-  }, {
-    main: 'm',
-    shift: 'M',
-    alt: '?'
-  }, {
-    display: '<',
-    main: 'BACKSPACE',
-  }],
-  [{
-    display: '?123',
-    main: 'ALT'
-  }, '/', {
-    display: 'SPACE',
-    main: ' '
-  }, '.', {
-    display: '->',
-    main: '\n'
-  }]
+  [
+    {main: 'q', shift: 'Q', alt: '%'},
+    {main: 'w', shift: 'W', alt: '\\'},
+    {main: 'e', shift: 'E', alt: '|'},
+    {main: 'r', shift: 'R', alt: '='},
+    {main: 't', shift: 'T', alt: '['},
+    {main: 'y', shift: 'Y', alt: ']'},
+    {main: 'u', shift: 'U', alt: '<'},
+    {main: 'i', shift: 'I', alt: '>'},
+    {main: 'o', shift: 'O', alt: '{'},
+    {main: 'p', shift: 'P', alt: '}'},
+  ],
+  [
+    {main: 'a', shift: 'A', alt: '@'},
+    {main: 's', shift: 'S', alt: '#'},
+    {main: 'd', shift: 'D', alt: '$'},
+    {main: 'f', shift: 'F', alt: '_'},
+    {main: 'g', shift: 'G', alt: '&'},
+    {main: 'h', shift: 'H', alt: '-'},
+    {main: 'j', shift: 'J', alt: '+'},
+    {main: 'k', shift: 'K', alt: '('},
+    {main: 'l', shift: 'L', alt: ')'},
+  ],
+  [
+    {display: '^', main: 'SHIFT'},
+    {main: 'z', shift: 'Z', alt: '*'},
+    {main: 'x', shift: 'X', alt: '"'},
+    {main: 'c', shift: 'C', alt: '\''},
+    {main: 'v', shift: 'V', alt: ':' },
+    {main: 'b', shift: 'B', alt: ';'},
+    {main: 'n', shift: 'N', alt: '!'},
+    {main: 'm', shift: 'M', alt: '?'},
+    {display: '<', main: 'BACKSPACE',},
+  ],
+  [
+    {display: '?123', main: 'ALT'},
+    '/',
+    {main: 'SPACE'},
+    '.',
+    {display: '->', main: 'ENTER'},
+  ]
 ];
+/* beautify preserve:end */
 
 const css = `
   .ck {
@@ -187,9 +107,7 @@ class CustomKeyboard extends HTMLElement {
       row.forEach(key => {
         const keyNode = document.createElement('button')
         keyNode.setAttribute('class', 'ck__key')
-        keyNode.textContent = this.shift
-          ? key.shift || key.display || key.main || key
-          : key.display || key.main || key
+        keyNode.textContent = key.display || key.main || key
 
         keyNode.dataset.main = key.main || key
         keyNode.dataset.display = key.display || ''

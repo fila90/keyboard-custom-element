@@ -7,31 +7,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <textarea cols="30" rows="10"></textarea>
+  <textarea cols="30" rows="10" style="margin: 1em auto; display: block"></textarea>
   <custom-keyboard  />
 
-  <script type="module" src="./custom-keyboard.js"></script>
   <script>
-    // const kbd = Array(3).fill(null)
-    // kbd[2] = Array(12)
-    // kbd[2][11] = {display: 'en', main: 'sss'}
+    const kbd = Array(3).fill(null)
+    kbd[2] = Array(12)
+    kbd[2][11] = {display: 'en', main: 'sss'}
 
-    const kbd = [
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '-', '='],
-      ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
-      ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\n'],
-      ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
-      ['SHIFT', 'CTRL', 'SPACE', 'ALT']
-    ];
+    // const kbd = [
+    //   [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '-', '='],
+    //   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
+    //   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\n'],
+    //   ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
+    //   ['SHIFT', 'CTRL', 'SPACE', 'ALT']
+    // ];
 
     const textarea = document.querySelector('textarea')
     const customKeyboard = document.querySelector('custom-keyboard')
     // customKeyboard.setAttribute('replace-kbd', true)
-    // customKeyboard.setAttribute('kbd', JSON.stringify(kbd))
+    customKeyboard.setAttribute('kbd', JSON.stringify(kbd))
 
     customKeyboard.addEventListener('ck-click', e => {
-      textarea.value += e.detail
+      switch (e.detail) {
+        case 'ENTER':
+          textarea.value += '\n'
+          break;
+        case 'BACKSPACE':
+          textarea.value = textarea.value.slice(0, textarea.value.length - 1)
+          break;
+        case 'SPACE':
+          textarea.value += ' '
+          break;
+        case 'ALT':
+        case 'SHIFT':
+          break;
+        default:
+          textarea.value += e.detail
+          break;
+      }
     })
   </script>
+  <script src="./custom-keyboard.js"></script>
 </body>
 </html>
