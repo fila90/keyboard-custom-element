@@ -9,10 +9,7 @@
 
 ### Description
 
-
 Fully customizable virtual keyboard. You can pass in your preferred config and styles and make it even more awesome.
-<i/>
----
 
 
 ### Usage
@@ -87,8 +84,7 @@ There's also `display` property that takes precedence over `main` in what should
   main: 'BACKSPACE',
 }
 ```
-<i/>
-------
+
 ### Defaults
 
 ###### CSS
