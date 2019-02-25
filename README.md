@@ -1,7 +1,7 @@
 # keyboard-custom-element
 
 
-> `<custom-keyboard />` made with Custom Elements API
+> `<key-board />` element made with Custom Elements API
 
 
 ![preview](ck-preview.gif)
@@ -14,19 +14,19 @@ Fully customizable virtual keyboard. You can pass in your preferred config and s
 
 ### Usage
 
-Import `custom-keyboard.js` and listen for `ck-click` event. Or just clone the repo and double click `index.html`.
+Import `key-board.js` and listen for `ck-click` event. Or just clone the repo and double click `index.html`.
 
 You can also import script as `module` to encapsulate all the contents of it, but it needs to be served with web server like `live-server` on Chrome. It will work in Firefox.
 
 ``` HTML
 <body>
   <textarea cols="30" rows="10" style="margin: 1em auto; display: block"></textarea>
-  <custom-keyboard  />
+  <key-board  />
 
 
   <script>
     const textarea = document.querySelector('textarea')
-    const customKeyboard = document.querySelector('custom-keyboard')
+    const customKeyboard = document.querySelector('key-board')
 
     customKeyboard.addEventListener('ck-click', e => {
       switch (e.detail) {
@@ -48,7 +48,7 @@ You can also import script as `module` to encapsulate all the contents of it, bu
       }
     })
   </script>
-  <script src="./custom-keyboard.js"></script>
+  <script src="./key-board.js"></script>
 </body>
 ```
 Keyboard supports regular and long click. On regular click value from `main` is returned. On long click (350ms or longer) `alt` value is returned. If your keyboard has `SHIFT` and `ALT` keys, you can toggle these values.
@@ -176,6 +176,6 @@ const kbd = Array(3).fill(null)
 kbd[2] = Array(6)
 kbd[2][5] = {display: 'en', main: 'sss'}
 
-const customKeyboard = document.querySelector('custom-keyboard')
+const customKeyboard = document.querySelector('key-board')
 customKeyboard.setAttribute('kbd', JSON.stringify(kbd))
 ```

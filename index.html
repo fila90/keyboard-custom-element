@@ -8,7 +8,7 @@
 </head>
 <body>
   <textarea cols="30" rows="10" style="margin: 1em auto; display: block"></textarea>
-  <custom-keyboard  />
+  <key-board  />
 
   <script>
     const kbd = Array(3).fill(null)
@@ -24,7 +24,7 @@
     // ];
 
     const textarea = document.querySelector('textarea')
-    const customKeyboard = document.querySelector('custom-keyboard')
+    const customKeyboard = document.querySelector('key-board')
     // customKeyboard.setAttribute('replace-kbd', true)
     customKeyboard.setAttribute('kbd', JSON.stringify(kbd))
 
@@ -48,6 +48,6 @@
       }
     })
   </script>
-  <script src="./custom-keyboard.js"></script>
+  <script src="./key-board.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* beautify preserve:start */
-const defaultKeyboard = [
+const defaultKbd = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
   [
     {main: 'q', shift: 'Q', alt: '%'},
@@ -45,7 +45,7 @@ const defaultKeyboard = [
 ];
 /* beautify preserve:end */
 
-const css = `
+const defaultCss = `
   .ck {
     position: absolute;
     left: 0;
@@ -92,7 +92,7 @@ class CustomKeyboard extends HTMLElement {
     shadow.appendChild(this._wrapper)
   }
 
-  _createKeyboard(kbd = defaultKeyboard) {
+  _createKeyboard(kbd = defaultKbd) {
     console.log(kbd);
 
     // remove all rows before adding new ones
@@ -203,7 +203,7 @@ class CustomKeyboard extends HTMLElement {
   _handleCustomPropCSS() {
     const style = document.createElement('style')
     const propCss = this.getAttribute('css')
-    style.textContent = css
+    style.textContent = defaultCss
     style.textContent += propCss ? propCss : ''
 
     return style
@@ -220,7 +220,7 @@ class CustomKeyboard extends HTMLElement {
     if (!kbd) return this._createKeyboard()
     if (replaceKbd) return this._createKeyboard(kbd)
 
-    let newKbd = [...defaultKeyboard]
+    let newKbd = [...defaultKbd]
     kbd.forEach((row, i) => {
       if (!row) return
       row.forEach((key, j) => {
@@ -234,4 +234,4 @@ class CustomKeyboard extends HTMLElement {
   }
 };
 
-customElements.define('custom-keyboard', CustomKeyboard);
+customElements.define('key-board', CustomKeyboard);
