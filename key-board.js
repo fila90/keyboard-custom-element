@@ -167,8 +167,6 @@ class CustomKeyboard extends HTMLElement {
    * @param {Array} kbd
    */
   _createKbd(kbd = this._defaultKbd) {
-    console.log(kbd);
-
     // remove all rows before adding new ones
     while (this._wrapper.firstChild) {
       this._wrapper.removeChild(this._wrapper.firstChild)
