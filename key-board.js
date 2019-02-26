@@ -1,4 +1,4 @@
-class CustomKeyboard extends HTMLElement {
+class KeyBoard extends HTMLElement {
   static get observedAttributes() {
     return ['css', 'kbd', 'kbd-replace', 'alt']
   }
@@ -287,7 +287,7 @@ class CustomKeyboard extends HTMLElement {
     let kbd = JSON.parse(this.propKbd)
     let kbdReplace = JSON.parse(this.propKbdReplace)
 
-    // if (!kbd) return this._createKbd()
+    if (!kbd) return this._createKbd()
     if (kbdReplace) return this._createKbd(kbd)
 
     let newKbd = [...this._defaultKbd]
@@ -304,4 +304,4 @@ class CustomKeyboard extends HTMLElement {
   }
 };
 
-customElements.define('key-board', CustomKeyboard);
+customElements.define('key-board', KeyBoard);
