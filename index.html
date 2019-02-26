@@ -25,8 +25,8 @@
 
     const textarea = document.querySelector('textarea')
     const customKeyboard = document.querySelector('key-board')
-    // customKeyboard.setAttribute('replace-kbd', true)
-    customKeyboard.setAttribute('kbd', JSON.stringify(kbd))
+    // customKeyboard.setAttribute('kbd-replace', true)
+    // customKeyboard.setAttribute('kbd', JSON.stringify(kbd))
 
     customKeyboard.addEventListener('ck-click', e => {
       switch (e.detail) {

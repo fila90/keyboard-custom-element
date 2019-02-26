@@ -168,7 +168,7 @@ name        | description                                           | type
 ------------|-------------------------------------------------------|----------------------
 css         | add your custom CSS to map over default one           | String
 kbd         | custom keyboard configuration to map over default one | JSON.stringify(Array)
-replace-kbd | should `kbd` completley replace default config        | Boolean
+kbd-replace | should `kbd` completley replace default config        | Boolean
 
 If you want to customize just the 6th key in third row for  example, you pass `kbd` as
 ``` JS
