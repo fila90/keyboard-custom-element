@@ -6,23 +6,21 @@ class CustomKeyboard extends HTMLElement {
   constructor() {
     super()
 
-    // defaults
-    this.shift = false
-    this.alt = false
-    this.altDuration = 350
-    this._wrapper = document.createElement('section')
-    this._wrapper.setAttribute('class', 'ck')
-
-    // handle custom properties
-    // this._handleCustomPropKbd()
-    // this._handleCustomPropCSS()
-
     const shadow = this.attachShadow({
       mode: 'open'
     })
+
+    // DEFAULTS
+    this.shift = false
+    this.alt = false
+    this.altDuration = 350
+
+    this._wrapper = document.createElement('section')
+    this._wrapper.setAttribute('class', 'ck')
+    this._initKbd()
+
     shadow.appendChild(this._initStyle())
     shadow.appendChild(this._wrapper)
-    this._initKbd()
   }
 
   connectedCallback() {}
@@ -35,7 +33,7 @@ class CustomKeyboard extends HTMLElement {
         this.altDuration = this.propAlt
         break;
       case 'css':
-
+        this._handlePropCSSChange()
         break;
       default:
         break;
@@ -133,12 +131,19 @@ class CustomKeyboard extends HTMLElement {
     return this.getAttribute('alt')
   }
 
+  get style() {
+    if(this._style) return this._style
+    const style = document.createElement('style')
+    this._style = style
+    return this._style
+  }
+
   /**
    * @name _initStyle
    * @desc add default styles
    */
   _initStyle() {
-    const style = document.createElement('style')
+    const style = this.style
     style.textContent = this._defaultCSS
 
     return style
@@ -265,15 +270,14 @@ class CustomKeyboard extends HTMLElement {
   }
 
   /**
-   * @name _handleCustomPropCSS
+   * @name _handlePropCSSChange
    * @desc append custom CSS to the end of default one, overiding overlaping classes
    */
-  _handleCustomPropCSS() {
-    const style = document.querySelector('style') || document.createElement('style')
-    style.textContent = this._defaultCSS
-    style.textContent += this.propCSS ? this.propCSS : ''
+  _handlePropCSSChange() {
+    this.style.textContent = this._defaultCSS
+    this.style.textContent += this.propCSS ? this.propCSS : ''
 
-    return style
+    return this.style
   }
 
   /**

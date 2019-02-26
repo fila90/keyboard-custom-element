@@ -11,22 +11,23 @@
   <key-board  />
 
   <script>
-    const kbd = Array(3).fill(null)
-    kbd[2] = Array(12)
-    kbd[2][11] = {display: 'en', main: 'sss'}
+    // const kbd = Array(3).fill(null)
+    // kbd[2] = Array(12)
+    // kbd[2][11] = {display: 'en', main: 'sss'}
 
-    // const kbd = [
-    //   [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '-', '='],
-    //   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
-    //   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\n'],
-    //   ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
-    //   ['SHIFT', 'CTRL', 'SPACE', 'ALT']
-    // ];
+    const kbd = [
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '-', '='],
+      ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
+      ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\n'],
+      ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
+      ['SHIFT', 'CTRL', 'SPACE', 'ALT']
+    ];
 
     const textarea = document.querySelector('textarea')
     const customKeyboard = document.querySelector('key-board')
     // customKeyboard.setAttribute('kbd-replace', true)
     // customKeyboard.setAttribute('kbd', JSON.stringify(kbd))
+    // customKeyboard.setAttribute('css', ' .ck { background-color: #000;}')
 
     customKeyboard.addEventListener('ck-click', e => {
       switch (e.detail) {
