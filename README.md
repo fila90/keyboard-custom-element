@@ -51,22 +51,8 @@ You can also import script as `module` to encapsulate all the contents of it, bu
   <script src="./key-board.js"></script>
 </body>
 ```
-Keyboard supports regular and long click. On regular click value from `main` is returned. On long click (350ms or longer) `alt` value is returned. If your keyboard has `SHIFT` and `ALT` keys, you can toggle these values.
+Keyboard supports regular and long click. On regular click value from `main` is returned. On long click (350ms or longer) `alt` value is returned. If your keyboard has `SHIFT` and `ALT` keys, you can toggle these values. If you pass `key` as primitive (Number or String) that value will be returned.
 
-
-###### Row
-
-Rows of keyboard are represented as arrays.
-``` JS
-const kbd = [
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '-', '='],
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';'],
-  ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
-  ['SHIFT', 'CTRL', 'SPACE', 'ALT']
-];
-```
-You can have as many rows and as many keys in each row as you like.
 
 ###### Key
 Keys can be represented as `Number`, `String` or `Object`. If you're using objects, `main` property is mandatory and this is the most complex structure.
@@ -84,6 +70,21 @@ There's also `display` property that takes precedence over `main` in what should
   main: 'BACKSPACE',
 }
 ```
+
+###### Row
+
+Rows of keyboard are represented as arrays.
+``` JS
+const kbd = [
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '-', '='],
+  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
+  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';'],
+  ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
+  ['SHIFT', 'CTRL', 'SPACE', 'ALT']
+];
+```
+You can have as many rows and as many keys in each row as you like.
+
 
 ### Defaults
 
@@ -171,7 +172,7 @@ kbd         | custom keyboard configuration to map over default one | JSON.strin
 kbd-replace | should `kbd` completley replace default config        | Boolean
 alt         | change duration of alt click                          | Number
 
-If you want to customize just the 6th key in third row for  example, you pass `kbd` as
+If you want to customize just the 6th key in third row for example, you pass `kbd` as
 ``` JS
 const kbd = Array(3).fill(null)
 kbd[2] = Array(6)
