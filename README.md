@@ -169,6 +169,7 @@ name        | description                                           | type
 css         | add your custom CSS to map over default one           | String
 kbd         | custom keyboard configuration to map over default one | JSON.stringify(Array)
 kbd-replace | should `kbd` completley replace default config        | Boolean
+alt         | change duration of alt click                          | Number
 
 If you want to customize just the 6th key in third row for  example, you pass `kbd` as
 ``` JS

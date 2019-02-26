@@ -1,6 +1,6 @@
 class CustomKeyboard extends HTMLElement {
   static get observedAttributes() {
-    return ['css', 'kbd', 'kbd-replace']
+    return ['css', 'kbd', 'kbd-replace', 'alt']
   }
 
   constructor() {
@@ -30,7 +30,7 @@ class CustomKeyboard extends HTMLElement {
 
     switch (name) {
       case 'alt':
-        this.altDuration = this.propAlt
+        this.altDuration = Number(this.propAlt)
         break;
       case 'css':
         this._handlePropCSSChange()
@@ -202,6 +202,8 @@ class CustomKeyboard extends HTMLElement {
           const clickStart = keyNode.dataset.clickStart
           const clickEnd = Date.now()
           const clickDuration = clickEnd - (clickStart * 1)
+          console.log(this.altDuration);
+
           /* beautify preserve:start */
           const customEvent = new CustomEvent('ck-click', {
             detail: clickDuration >= this.altDuration
