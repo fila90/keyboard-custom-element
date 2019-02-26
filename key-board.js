@@ -26,8 +26,6 @@ class CustomKeyboard extends HTMLElement {
   connectedCallback() {}
 
   attributeChangedCallback(name, oldval, newval) {
-    console.log(`the ${name} attribute has changed from ${oldval} to ${newval}!!`);
-
     switch (name) {
       case 'alt':
         this.altDuration = Number(this.propAlt)
