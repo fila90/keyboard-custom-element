@@ -33,9 +33,10 @@ class CustomKeyboard extends HTMLElement {
         this.altDuration = Number(this.propAlt)
         break;
       case 'css':
-        this._handlePropCSSChange()
+        this._handleCSSChange()
         break;
-      default:
+      case 'kbd':
+        this._handleKbdChange()
         break;
     }
   }
@@ -132,7 +133,7 @@ class CustomKeyboard extends HTMLElement {
   }
 
   get style() {
-    if(this._style) return this._style
+    if (this._style) return this._style
     const style = document.createElement('style')
     this._style = style
     return this._style
@@ -272,10 +273,10 @@ class CustomKeyboard extends HTMLElement {
   }
 
   /**
-   * @name _handlePropCSSChange
+   * @name _handleCSSChange
    * @desc append custom CSS to the end of default one, overiding overlaping classes
    */
-  _handlePropCSSChange() {
+  _handleCSSChange() {
     this.style.textContent = this._defaultCSS
     this.style.textContent += this.propCSS ? this.propCSS : ''
 
@@ -283,14 +284,14 @@ class CustomKeyboard extends HTMLElement {
   }
 
   /**
-   * @name _handleCustomPropKbd
+   * @name _handleKbdChange
    * @desc map custom keyboard over default one
    */
-  _handleCustomPropKbd() {
+  _handleKbdChange() {
     let kbd = JSON.parse(this.propKbd)
     let kbdReplace = JSON.parse(this.propKbdReplace)
 
-    if (!kbd) return this._createKbd()
+    // if (!kbd) return this._createKbd()
     if (kbdReplace) return this._createKbd(kbd)
 
     let newKbd = [...this._defaultKbd]
