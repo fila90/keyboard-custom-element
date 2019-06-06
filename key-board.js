@@ -6,10 +6,6 @@ class KeyBoard extends HTMLElement {
   constructor() {
     super()
 
-    const shadow = this.attachShadow({
-      mode: 'open'
-    })
-
     // DEFAULTS
     this.shift = false
     this.alt = false
@@ -19,11 +15,13 @@ class KeyBoard extends HTMLElement {
     this._wrapper.setAttribute('class', 'ck')
     this._initKbd()
 
+    const shadow = this.attachShadow({
+      mode: 'open'
+    })
+
     shadow.appendChild(this._initStyle())
     shadow.appendChild(this._wrapper)
   }
-
-  connectedCallback() {}
 
   attributeChangedCallback(name, oldval, newval) {
     switch (name) {
@@ -84,7 +82,7 @@ class KeyBoard extends HTMLElement {
         '.',
         {display: '->', main: 'ENTER'},
       ]
-    ];
+    ]
     /* beautify preserve:end */
   }
 
@@ -166,8 +164,8 @@ class KeyBoard extends HTMLElement {
    */
   _createKbd(kbd = this._defaultKbd) {
     // remove all rows before adding new ones
-    while (this._wrapper.firstChild) {
-      this._wrapper.removeChild(this._wrapper.firstChild)
+    while (this._wrapper.lastChild) {
+      this._wrapper.removeChild(this._wrapper.lastChild)
     }
 
     kbd.forEach(row => {
@@ -198,8 +196,7 @@ class KeyBoard extends HTMLElement {
         keyNode.addEventListener('mouseup', e => {
           const clickStart = keyNode.dataset.clickStart
           const clickEnd = Date.now()
-          const clickDuration = clickEnd - (clickStart * 1)
-          console.log(this.altDuration);
+          const clickDuration = clickEnd - (+clickStart)
 
           /* beautify preserve:start */
           const customEvent = new CustomEvent('ck-click', {
@@ -302,6 +299,6 @@ class KeyBoard extends HTMLElement {
 
     return this._createKbd(newKbd)
   }
-};
+}
 
-customElements.define('key-board', KeyBoard);
+customElements.define('key-board', KeyBoard)
