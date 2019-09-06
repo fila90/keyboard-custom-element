@@ -1,0 +1,32 @@
+{
+  "name": "keyboard-custom-element",
+  "version": "1.0.3",
+  "description": "`<key-board />` element made with Custom Elements API",
+  "main": "key-board.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fila90/keyboard-custom-element.git"
+  },
+  "keywords": [
+    "key-board",
+    "keyboard",
+    "DOM",
+    "node",
+    "element",
+    "custom elements",
+    "web components"
+  ],
+  "files": [
+    "key-board.js",
+    "README.md"
+  ],
+  "author": "Ivan Filipovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fila90/keyboard-custom-element/issues"
+  },
+  "homepage": "https://github.com/fila90/keyboard-custom-element#readme"
+}
